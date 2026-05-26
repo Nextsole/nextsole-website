@@ -54,25 +54,39 @@ function IconMinus() {
   );
 }
 
-// ── App screenshot ─────────────────────────────────────────────────────────
+// ── App screenshots ────────────────────────────────────────────────────────
 
-function AppScreenshot() {
+function ChromeDots({ small = false }: { small?: boolean }) {
+  const size = small ? "h-2 w-2" : "h-3 w-3";
+  const pad = small ? "px-3 py-2" : "px-4 py-3";
+  return (
+    <div className={`flex items-center gap-1.5 border-b border-neutral-800 ${pad}`}>
+      <div className={`${size} rounded-full bg-neutral-700`} />
+      <div className={`${size} rounded-full bg-neutral-700`} />
+      <div className={`${size} rounded-full bg-neutral-700`} />
+    </div>
+  );
+}
+
+function AppScreenshots() {
   return (
     <div className="relative w-full max-w-lg mx-auto select-none">
       <div className="absolute inset-0 rounded-3xl bg-lime-400/10 blur-3xl -z-10 scale-95" />
-      <div className="rounded-2xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-2xl">
-        <div className="flex items-center gap-1.5 border-b border-neutral-800 px-4 py-3">
-          <div className="h-3 w-3 rounded-full bg-neutral-700" />
-          <div className="h-3 w-3 rounded-full bg-neutral-700" />
-          <div className="h-3 w-3 rounded-full bg-neutral-700" />
+      <div className="space-y-3">
+        <div className="rounded-2xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-2xl">
+          <ChromeDots />
+          <Image src="/app-screenshot.png" alt="Nextsole collection view" width={960} height={640} className="w-full h-auto" />
         </div>
-        <Image
-          src="/app-screenshot.png"
-          alt="Nextsole app screenshot"
-          width={960}
-          height={640}
-          className="w-full h-auto"
-        />
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-lg">
+            <ChromeDots small />
+            <Image src="/app-screenshot-2.png" alt="Nextsole dashboard" width={960} height={640} className="w-full h-auto" />
+          </div>
+          <div className="rounded-xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-lg">
+            <ChromeDots small />
+            <Image src="/app-screenshot-3.png" alt="Nextsole shoe detail" width={960} height={640} className="w-full h-auto" />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -135,7 +149,7 @@ function Hero() {
           </div>
 
           <div className="lg:pl-6">
-            <AppScreenshot />
+            <AppScreenshots />
           </div>
         </div>
       </div>
@@ -347,11 +361,64 @@ function Footer() {
   );
 }
 
+// ── Structured data ────────────────────────────────────────────────────────
+
+function JsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://nextsole.co.uk/#org",
+        name: "Nextsole",
+        url: "https://nextsole.co.uk",
+        logo: "https://nextsole.co.uk/nextsole-logo.png",
+        sameAs: [],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nextsole.co.uk/#website",
+        url: "https://nextsole.co.uk",
+        name: "Nextsole",
+        publisher: { "@id": "https://nextsole.co.uk/#org" },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://app.nextsole.co.uk/collection?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "Nextsole",
+        applicationCategory: "LifestyleApplication",
+        operatingSystem: "Web",
+        url: "https://app.nextsole.co.uk",
+        description: "Track, value and manage your sneaker collection. Know what you own, what it's worth, and what to wear next.",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+        },
+        publisher: { "@id": "https://nextsole.co.uk/#org" },
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 // ── Page ───────────────────────────────────────────────────────────────────
 
 export default function LandingPage() {
   return (
     <>
+      <JsonLd />
       {/* Fixed backdrop — stays still while content scrolls over it */}
       <div className="fixed inset-0 -z-20">
         <Image
