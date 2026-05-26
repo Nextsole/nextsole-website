@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
-const APP_URL = "https://app.nextsole.co.uk";
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Y350WLM4QG";
 const SITE_URL = "https://nextsole.co.uk";
 
 export const metadata: Metadata = {
@@ -33,16 +34,19 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const APP_LINK = APP_URL + "/login";
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="h-full scroll-smooth antialiased">
       <body className="min-h-full bg-neutral-950 text-white">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+        </Script>
         {children}
       </body>
     </html>
   );
 }
-
-export { APP_LINK };
