@@ -54,39 +54,19 @@ function IconMinus() {
   );
 }
 
-// ── App screenshots ────────────────────────────────────────────────────────
+// ── App screenshot ─────────────────────────────────────────────────────────
 
-function ChromeDots({ small = false }: { small?: boolean }) {
-  const size = small ? "h-2 w-2" : "h-3 w-3";
-  const pad = small ? "px-3 py-2" : "px-4 py-3";
-  return (
-    <div className={`flex items-center gap-1.5 border-b border-neutral-800 ${pad}`}>
-      <div className={`${size} rounded-full bg-neutral-700`} />
-      <div className={`${size} rounded-full bg-neutral-700`} />
-      <div className={`${size} rounded-full bg-neutral-700`} />
-    </div>
-  );
-}
-
-function AppScreenshots() {
+function AppScreenshot() {
   return (
     <div className="relative w-full max-w-lg mx-auto select-none">
       <div className="absolute inset-0 rounded-3xl bg-lime-400/10 blur-3xl -z-10 scale-95" />
-      <div className="space-y-3">
-        <div className="rounded-2xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-2xl">
-          <ChromeDots />
-          <Image src="/app-screenshot.png" alt="Nextsole collection view" width={960} height={640} className="w-full h-auto" />
+      <div className="rounded-2xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-2xl">
+        <div className="flex items-center gap-1.5 border-b border-neutral-800 px-4 py-3">
+          <div className="h-3 w-3 rounded-full bg-neutral-700" />
+          <div className="h-3 w-3 rounded-full bg-neutral-700" />
+          <div className="h-3 w-3 rounded-full bg-neutral-700" />
         </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-lg">
-            <ChromeDots small />
-            <Image src="/app-screenshot-2.png" alt="Nextsole dashboard" width={960} height={640} className="w-full h-auto" />
-          </div>
-          <div className="rounded-xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-lg">
-            <ChromeDots small />
-            <Image src="/app-screenshot-3.png" alt="Nextsole shoe detail" width={960} height={640} className="w-full h-auto" />
-          </div>
-        </div>
+        <Image src="/app-screenshot.png" alt="Nextsole app" width={960} height={640} className="w-full h-auto" />
       </div>
     </div>
   );
@@ -149,7 +129,7 @@ function Hero() {
           </div>
 
           <div className="lg:pl-6">
-            <AppScreenshots />
+            <AppScreenshot />
           </div>
         </div>
       </div>
