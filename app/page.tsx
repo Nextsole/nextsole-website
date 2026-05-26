@@ -103,16 +103,8 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Backdrop image */}
+      {/* Gradient overlays sit on top of the page-level fixed backdrop */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/Backdrop.png"
-          alt=""
-          fill
-          className="object-cover object-center opacity-60"
-          priority
-        />
-        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/60 to-neutral-950/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/40" />
       </div>
@@ -178,7 +170,7 @@ function Features() {
   ];
 
   return (
-    <section id="features" className="py-24 sm:py-32 border-t border-neutral-800">
+    <section id="features" className="relative py-24 sm:py-32 border-t border-neutral-800 bg-neutral-950">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-lime-400 font-semibold">Features</p>
@@ -213,7 +205,7 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 sm:py-32 border-t border-neutral-800">
+    <section className="py-24 sm:py-32 border-t border-neutral-800 bg-neutral-950">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-lime-400 font-semibold">How it works</p>
@@ -255,7 +247,7 @@ function PricingTable() {
   ];
 
   return (
-    <section id="pricing" className="py-24 sm:py-32 border-t border-neutral-800">
+    <section id="pricing" className="py-24 sm:py-32 border-t border-neutral-800 bg-neutral-950">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-lime-400 font-semibold">Pricing</p>
@@ -315,10 +307,8 @@ function PricingTable() {
 function FinalCTA() {
   return (
     <section className="relative overflow-hidden py-24 sm:py-32 border-t border-neutral-800">
-      <div className="absolute inset-0 -z-10">
-        <Image src="/Backdrop.png" alt="" fill className="object-cover object-center opacity-15" />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950" />
-      </div>
+      {/* Let the fixed backdrop show through with a light overlay */}
+      <div className="absolute inset-0 -z-10 bg-neutral-950/70" />
       <div className="mx-auto max-w-2xl px-4 sm:px-6 text-center">
         <h2 className="text-4xl font-black sm:text-5xl leading-tight">
           Your collection deserves<br />
@@ -362,6 +352,16 @@ function Footer() {
 export default function LandingPage() {
   return (
     <>
+      {/* Fixed backdrop — stays still while content scrolls over it */}
+      <div className="fixed inset-0 -z-20">
+        <Image
+          src="/Backdrop.png"
+          alt=""
+          fill
+          className="object-cover object-center opacity-60"
+          priority
+        />
+      </div>
       <Nav />
       <main>
         <Hero />
