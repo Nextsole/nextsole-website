@@ -155,12 +155,12 @@ function Hero() {
           src="/Backdrop.png"
           alt=""
           fill
-          className="object-cover object-center opacity-30"
+          className="object-cover object-center opacity-60"
           priority
         />
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-neutral-950/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/60 to-neutral-950/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/40" />
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
