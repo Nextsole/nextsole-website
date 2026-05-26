@@ -232,7 +232,7 @@ function PricingTable() {
     { feature: "Sneaker catalogue search", free: true, pro: true },
     { feature: "Manual entry", free: true, pro: true },
     { feature: "Market price tracking", free: true, pro: true },
-    { feature: "Daily rotation pick", free: true, pro: true },
+    { feature: "Daily rotation pick", free: "1 pick", pro: "Full rotation" },
     { feature: "Price history charts", free: false, pro: true },
     { feature: "CSV import & export", free: false, pro: true },
     { feature: "Complete shoe data", free: false, pro: true },
