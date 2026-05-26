@@ -259,11 +259,9 @@ function PricingTable() {
                 Get started
               </Link>
             </div>
-            <div className="relative border-l border-neutral-800 bg-lime-400/5 p-5 text-center">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-lime-400 px-3 py-0.5 text-xs font-bold text-black whitespace-nowrap">
-                Pro
-              </div>
-              <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">Pro</p>
+            <div className="border-l border-neutral-800 bg-lime-400/5 p-5 text-center">
+              <span className="inline-block rounded-full bg-lime-400 px-3 py-0.5 text-xs font-bold text-black whitespace-nowrap">Pro</span>
+              <p className="mt-2 text-xs uppercase tracking-widest text-lime-400 font-semibold">Plan</p>
               <p className="mt-2 text-xl font-black leading-tight">Coming<br/>soon</p>
               <p className="text-xs text-neutral-500">join the waitlist</p>
               <Link href={SIGNIN} className="mt-4 block rounded-xl bg-lime-400 px-4 py-2.5 text-sm font-bold text-black hover:bg-lime-300 transition text-center">
