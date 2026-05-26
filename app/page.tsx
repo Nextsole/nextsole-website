@@ -54,71 +54,25 @@ function IconMinus() {
   );
 }
 
-// ── App mockup ─────────────────────────────────────────────────────────────
+// ── App screenshot ─────────────────────────────────────────────────────────
 
-function AppMockup() {
-  const shoes = [
-    { name: "Air Jordan 1 Retro High OG", colourway: "Bred", value: "£285", change: "+12%", up: true },
-    { name: "Nike Air Force 1 '07", colourway: "White/White", value: "£95", change: "+3%", up: true },
-    { name: "Adidas Yeezy Boost 350 V2", colourway: "Zebra", value: "£220", change: "-4%", up: false },
-    { name: "Air Jordan 4 Retro", colourway: "Military Black", value: "£340", change: "+8%", up: true },
-  ];
-
+function AppScreenshot() {
   return (
     <div className="relative w-full max-w-lg mx-auto select-none">
       <div className="absolute inset-0 rounded-3xl bg-lime-400/10 blur-3xl -z-10 scale-95" />
-      <div className="rounded-2xl border border-neutral-800 bg-neutral-900/95 backdrop-blur overflow-hidden shadow-2xl">
-        <div className="flex items-center gap-2 border-b border-neutral-800 px-4 py-3">
-          <div className="flex gap-1.5">
-            <div className="h-3 w-3 rounded-full bg-neutral-700" />
-            <div className="h-3 w-3 rounded-full bg-neutral-700" />
-            <div className="h-3 w-3 rounded-full bg-neutral-700" />
-          </div>
-          <div className="mx-auto flex items-center gap-2 rounded-lg bg-neutral-800 px-3 py-1 text-xs text-neutral-500">
-            app.nextsole.co.uk
-          </div>
+      <div className="rounded-2xl border border-neutral-800 bg-neutral-900/95 overflow-hidden shadow-2xl">
+        <div className="flex items-center gap-1.5 border-b border-neutral-800 px-4 py-3">
+          <div className="h-3 w-3 rounded-full bg-neutral-700" />
+          <div className="h-3 w-3 rounded-full bg-neutral-700" />
+          <div className="h-3 w-3 rounded-full bg-neutral-700" />
         </div>
-        <div className="flex items-center justify-between border-b border-neutral-800/50 px-4 py-3">
-          <span className="text-xs font-black tracking-[0.2em] uppercase text-lime-400">Nextsole</span>
-          <div className="flex gap-4 text-xs text-neutral-500">
-            <span className="text-white font-semibold">Collection</span>
-            <span>Dashboard</span>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 divide-x divide-neutral-800 border-b border-neutral-800">
-          {[{ label: "Pairs", value: "24" }, { label: "Total value", value: "£4,820" }, { label: "Gain", value: "+£640" }].map((s) => (
-            <div key={s.label} className="p-3 text-center">
-              <p className="text-xs text-neutral-500">{s.label}</p>
-              <p className="mt-0.5 text-sm font-bold">{s.value}</p>
-            </div>
-          ))}
-        </div>
-        <div className="divide-y divide-neutral-800/50">
-          {shoes.map((shoe) => (
-            <div key={shoe.name} className="flex items-center gap-3 px-4 py-3">
-              <div className="h-10 w-10 shrink-0 rounded-xl bg-neutral-800 flex items-center justify-center">
-                <svg width="22" height="14" viewBox="0 0 44 22" fill="none">
-                  <path d="M2 15C9 15 13 8 22 8C31 8 35 13 42 11L42 17C35 17 31 15 22 15C13 15 9 17 2 17Z" fill="#404040"/>
-                  <path d="M9 8L16 4L20 8" stroke="#555" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-xs font-semibold">{shoe.name}</p>
-                <p className="text-xs text-neutral-500">{shoe.colourway}</p>
-              </div>
-              <div className="text-right shrink-0">
-                <p className="text-xs font-bold">{shoe.value}</p>
-                <p className={`text-xs ${shoe.up ? "text-lime-400" : "text-red-400"}`}>{shoe.change}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="border-t border-neutral-800 px-4 py-3">
-          <div className="rounded-xl bg-lime-400/10 border border-lime-500/20 px-3 py-2 flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-lime-400 animate-pulse shrink-0" />
-            <p className="text-xs text-lime-300 font-medium truncate">Today&apos;s pick: Air Jordan 1 Bred — 42 days unworn</p>
-          </div>
-        </div>
+        <Image
+          src="/app-screenshot.png"
+          alt="Nextsole app screenshot"
+          width={960}
+          height={640}
+          className="w-full h-auto"
+        />
       </div>
     </div>
   );
@@ -189,7 +143,7 @@ function Hero() {
           </div>
 
           <div className="lg:pl-6">
-            <AppMockup />
+            <AppScreenshot />
           </div>
         </div>
       </div>
