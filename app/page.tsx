@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import WaitlistButton from "./WaitlistButton";
 
 const APP = "https://app.nextsole.co.uk";
 const SIGNIN = `${APP}/login`;
@@ -96,19 +97,19 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
       {/* Gradient overlays sit on top of the page-level fixed backdrop */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/60 to-neutral-950/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/40" />
       </div>
 
-      <div className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-lime-500/30 bg-lime-400/10 px-3 py-1.5 text-xs font-semibold text-lime-400">
               <span className="h-1.5 w-1.5 rounded-full bg-lime-400 animate-pulse" />
-              Now live — free to start
+              Now in beta · Free to start
             </div>
             <h1 className="mt-6 text-5xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
               Track every pair.<br />
@@ -126,6 +127,9 @@ function Hero() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-neutral-500">Free for up to 8 pairs · No credit card needed</p>
+            <p className="mt-2 text-xs text-neutral-600">
+              Nextsole is in active beta. We&apos;re building in the open and improving every week — your feedback shapes what comes next.
+            </p>
           </div>
 
           <div className="lg:pl-6">
@@ -263,10 +267,10 @@ function PricingTable() {
               <span className="inline-block rounded-full bg-lime-400 px-3 py-0.5 text-xs font-bold text-black whitespace-nowrap">Pro</span>
               <p className="mt-2 text-xs uppercase tracking-widest text-lime-400 font-semibold">Plan</p>
               <p className="mt-2 text-xl font-black leading-tight">Coming<br/>soon</p>
-              <p className="text-xs text-neutral-500">join the waitlist</p>
-              <Link href={SIGNIN} className="mt-4 block rounded-xl bg-lime-400 px-4 py-2.5 text-sm font-bold text-black hover:bg-lime-300 transition text-center">
+              <p className="text-xs text-neutral-500">beta · early access</p>
+              <WaitlistButton className="mt-4 block w-full rounded-xl bg-lime-400 px-4 py-2.5 text-sm font-bold text-black hover:bg-lime-300 transition text-center cursor-pointer">
                 Join waitlist
-              </Link>
+              </WaitlistButton>
             </div>
           </div>
           {rows.map((row, i) => (
